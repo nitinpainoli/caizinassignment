@@ -5,16 +5,7 @@ data "aws_vpc" "dev" {
   }
 }
 
-# data "aws_subnets" "dev-public" {
-#   filter {
-#     name   = "tag:Scope"
-#     values = ["public"]
-#   }
-#   filter {
-#     name   = "vpc-id"
-#     values = [data.aws_vpc.dev.id]
-#   }
-# }
+
 
 data "aws_subnets" "dev-private" {
   filter {

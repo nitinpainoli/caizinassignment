@@ -21,10 +21,3 @@ resource "aws_security_group_rule" "allow_ssh_from_vpc_ip" {
   security_group_id = aws_eks_cluster.app.vpc_config[0].cluster_security_group_id
 }
 
-# output "myip" {
-#     value = data.http.myip.response_body
-# }
-
-# output "name" {
-#     value = aws_eks_cluster.app.vpc_config[0].cluster_security_group_id
-# }

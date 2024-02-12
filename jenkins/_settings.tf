@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket  = "terraform-test-ttn"
+    bucket  = "ais-poc-us-east-1-tothenew-backend"
     key     = "common/jenkins/main.tf"
-    region  = "us-east-2"
+    region  = "us-east-1"
     encrypt = true
 
   }
@@ -17,12 +17,12 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws",
-      version = "4.23.0"
+
     }
   }
 }
 
 locals {
-  env_space = yamldecode(file("../config.yml"))
+  env_space = yamldecode(file("../config-${terraform.workspace}.yml"))
   workspace = local.env_space
 }

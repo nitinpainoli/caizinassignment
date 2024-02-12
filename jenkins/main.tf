@@ -1,5 +1,5 @@
 module "ec2-jenkins" {
-  source               = "../../modules/terraform-aws-jenkins"
+  source               = "../modules/jenkins"
   vpc_id               = data.aws_vpc.dev.id
   subnet_ids           = ["${data.aws_subnets.dev-private.ids[0]}"]
   iam_instance_profile = data.terraform_remote_state.common_iam.outputs.jenkins_role_name

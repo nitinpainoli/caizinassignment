@@ -1,0 +1,59 @@
+account_name: test
+environment_name: test
+key_name: test
+aws:
+    region: us-east-2
+    account_id: XXXXXXXX
+common_tags: 
+    Environment: test
+vpc:
+    cidr_block: 10.0.0.0/16
+    subnet_bits: 6
+    subnet:
+      private:
+        is_public: false
+        nat_gateway: true
+        details:
+          - availability_zone: "a"
+            cidr_address: "10.0.0.0/22"
+          - availability_zone: "b"
+            cidr_address: "10.0.4.0/22"
+      public:
+        is_public: true
+        nat_gateway: false
+        details:
+          - availability_zone: "a"
+            cidr_address: "10.0.12.0/24"
+          - availability_zone: "b"
+            cidr_address: "10.0.13.0/24"
+      database:
+        is_public: false
+        nat_gateway: false
+        details:
+          - availability_zone: "a"
+            cidr_address: "10.0.14.0/24"
+          - availability_zone: "b"
+            cidr_address: "10.0.15.0/24"
+    create_vpc_endpoint: true
+jenkins:
+    instance_type: "t4g.medium"
+    volume_type: "gp3"
+    root_volume_size: "20"
+    ami_id: "ami-0a7cf821b91bcccbc" 
+eks:
+    version: 1.29
+    endpoint_private_access: true
+    endpoint_public_access: true
+    on_demand:
+      create: true
+      min_size: 1
+      desired_size: 1
+      max_size: 1
+    spot:
+      create: false
+      min_size: 1
+      desired_size: 1
+      max_size: 1
+    root_volume_size: 50
+    instance_type:
+      - t4g.medium

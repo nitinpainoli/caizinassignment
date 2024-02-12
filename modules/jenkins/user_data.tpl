@@ -2,8 +2,8 @@
 
 sudo -i
 sudo yum install java-11-amazon-corretto -y
-echo "Variable value: ${jenkins_version}" > /opt/version.txt
-sudo wget https://updates.jenkins.io/download/war/${jenkins_version}/jenkins.war -O /opt/jenkins.war
+echo "Variable value: 2.444/}" > /opt/version.txt
+sudo wget https://updates.jenkins.io/download/war/2.444//jenkins.war -O /opt/jenkins.war
 
 sudo useradd jenkins --home /var/lib/jenkins
 echo "jenkins ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR='tee -a' visudo
@@ -31,11 +31,11 @@ sudo systemctl start jenkins
 sudo systemctl enable jenkins
 
 
-sudo amazon-linux-extras install docker -y
-sudo usermod -a -G docker ec2-user
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo systemctl status docker
+sudo yum -y install docker
+    sudo usermod -a -G docker ec2-user
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    sudo systemctl status docker
 docker --version
 
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo

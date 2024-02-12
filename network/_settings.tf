@@ -1,12 +1,13 @@
 terraform {
   backend "s3" {
-    bucket  = "BACKEND_BUCKET"
+    bucket  = "ais-poc-us-east-1-tothenew-backend"
     key     = "network/main.tf"
-    region  = "BACKEND_BUCKET_REGION"
+    region  = "us-east-1"
     encrypt = true
 
   }
 }
+
 
 provider "aws" {
   region = local.workspace["aws"]["region"]

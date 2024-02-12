@@ -31,13 +31,3 @@ data "aws_ssm_parameter" "eks_ami_release_version" {
   name = "/aws/service/eks/optimized-ami/${aws_eks_cluster.app.version}/amazon-linux-2/recommended/release_version"
 }
 
-# data "terraform_remote_state" "common_iam" {
-#   backend   = "s3"
-#   workspace = "default"
-#   config = {
-#     bucket  = "etv-infra"
-#     encrypt = true
-#     key     = "common/iam/main.tf"
-#     region  = "ap-south-1"
-#   }
-# }
